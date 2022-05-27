@@ -116,14 +116,14 @@ func (c *ServiceInstanceAdd) Info() *cmd.Info {
 		Name:  "service-instance-add",
 		Usage: "service instance add <service-name> <service-instance-name> [plan] [-t/--team-owner team] [-d/--description description] [-g/--tag tag]... [--plan-param key=value]... [--pool name]",
 		Desc: `Creates a service instance of a service. There can later be binded to
-applications with [[tsuru service-bind]].
+applications with [[bizfly service-bind]].
 
 This example shows how to add a new instance of **mongodb** service, named
-**tsuru_mongodb** with the plan **small**:
+**bizfly_mongodb** with the plan **small**:
 
 ::
 
-	$ tsuru service instance add mongodb tsuru_mongodb small -t myteam
+	$ bizfly service instance add mongodb bizfly_mongodb small -t myteam
 `,
 		MinArgs: 2,
 		MaxArgs: 3,
@@ -167,7 +167,7 @@ func (c *ServiceInstanceAdd) Run(ctx *cmd.Context, client *cmd.Client) error {
 		return err
 	}
 	fmt.Fprint(ctx.Stdout, "Service instance successfully added.\n")
-	fmt.Fprintf(ctx.Stdout, "For additional information use: tsuru service instance info %s %s\n", serviceName, instanceName)
+	fmt.Fprintf(ctx.Stdout, "For additional information use: bizfly service instance info %s %s\n", serviceName, instanceName)
 	return nil
 }
 
@@ -337,12 +337,12 @@ func (sb *ServiceInstanceBind) Info() *cmd.Info {
 	return &cmd.Info{
 		Name:  "service-instance-bind",
 		Usage: "service instance bind <service-name> <service-instance-name> [-a/--app appname] [--no-restart]",
-		Desc: `Binds an application to a previously created service instance. See [[tsuru
+		Desc: `Binds an application to a previously created service instance. See [[bizfly
 service instance add]] for more details on how to create a service instance.
 
-When binding an application to a service instance, tsuru will add new
+When binding an application to a service instance, bizfly will add new
 environment variables to the application. All environment variables exported
-by bind will be private (not accessible via [[tsuru env-get]]).`,
+by bind will be private (not accessible via [[bizfly env-get]]).`,
 		MinArgs: 2,
 	}
 }
@@ -915,7 +915,7 @@ func (c *ServiceInstanceRemove) Info() *cmd.Info {
 		Usage: "service instance remove <service-name> <service-instance-name> [-f/--force] [--ignore-errors] [-y/--assume-yes]",
 		Desc: `Destroys a service instance. It can't remove a service instance that is bound
 to an app, so before remove a service instance, make sure there is no apps
-bound to it (see [[tsuru service-instance-info]] command).`,
+bound to it (see [[bizfly service-instance-info]] command).`,
 		MinArgs: 2,
 	}
 }

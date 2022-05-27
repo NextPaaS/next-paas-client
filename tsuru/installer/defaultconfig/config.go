@@ -12,7 +12,7 @@ func DefaultTsuruConfig() map[string]interface{} {
 	conf := make(map[string]interface{})
 	err := yaml.Unmarshal([]byte(Tsuru), conf)
 	if err != nil {
-		panic(fmt.Sprintf("invalid default config for tsuru api: %s", err))
+		panic(fmt.Sprintf("invalid default config for bizfly api: %s", err))
 	}
 	return conf
 }

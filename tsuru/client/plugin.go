@@ -69,7 +69,7 @@ func (PluginRemove) Info() *cmd.Info {
 	return &cmd.Info{
 		Name:    "plugin-remove",
 		Usage:   "plugin-remove <plugin-name>",
-		Desc:    "Removes a previously installed tsuru plugin.",
+		Desc:    "Removes a previously installed bizfly plugin.",
 		MinArgs: 1,
 	}
 }
@@ -91,7 +91,7 @@ func (PluginList) Info() *cmd.Info {
 	return &cmd.Info{
 		Name:    "plugin-list",
 		Usage:   "plugin-list",
-		Desc:    "List installed tsuru plugins.",
+		Desc:    "List installed bizfly plugins.",
 		MinArgs: 0,
 	}
 }

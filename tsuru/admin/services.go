@@ -240,7 +240,7 @@ type ServiceTemplate struct{}
 
 func (c *ServiceTemplate) Info() *cmd.Info {
 	usg := `service template
-e.g.: $ tsuru service template template`
+e.g.: $ bizfly service template template`
 	return &cmd.Info{
 		Name:  "service-template",
 		Usage: usg,

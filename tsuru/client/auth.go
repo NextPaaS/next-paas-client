@@ -31,7 +31,7 @@ func (c *UserCreate) Info() *cmd.Info {
 	return &cmd.Info{
 		Name:    "user-create",
 		Usage:   "user create <email>",
-		Desc:    "Creates a user within tsuru remote server. It will ask for the password before issue the request.",
+		Desc:    "Creates a user within bizfly remote server. It will ask for the password before issue the request.",
 		MinArgs: 1,
 	}
 }
@@ -115,7 +115,7 @@ func (c *UserRemove) Run(context *cmd.Context, client *cmd.Client) error {
 			return err
 		}
 	}
-	fmt.Fprintf(context.Stdout, `Are you sure you want to remove the user %q from tsuru? (y/n) `, email)
+	fmt.Fprintf(context.Stdout, `Are you sure you want to remove the user %q from bizfly? (y/n) `, email)
 	fmt.Fscanf(context.Stdin, "%s", &answer)
 	if answer != "y" {
 		fmt.Fprintln(context.Stdout, "Abort.")
@@ -145,8 +145,8 @@ func (c *UserRemove) Info() *cmd.Info {
 	return &cmd.Info{
 		Name:  "user-remove",
 		Usage: "user remove [email]",
-		Desc: `Remove currently authenticated user from remote tsuru
-server. Since there cannot exist any orphan teams, tsuru will refuse to remove
+		Desc: `Remove currently authenticated user from remote bizfly
+server. Since there cannot exist any orphan teams, bizfly will refuse to remove
 a user that is the last member of some team. If this is your case, make sure
 you remove the team using ` + "`team-remove`" + ` before removing the user.`,
 		MinArgs: 0,
@@ -163,7 +163,7 @@ func (c *TeamCreate) Info() *cmd.Info {
 	return &cmd.Info{
 		Name:  "team-create",
 		Usage: "team create <teamname> [--tag/-t tag]...",
-		Desc: `Create a team for the user. tsuru requires a user to be a member of at least
+		Desc: `Create a team for the user. bizfly requires a user to be a member of at least
 one team in order to create an app or a service instance.
 
 When you create a team, you're automatically member of this team.
@@ -276,7 +276,7 @@ func (c *TeamRemove) Info() *cmd.Info {
 	return &cmd.Info{
 		Name:  "team-remove",
 		Usage: "team remove <team-name>",
-		Desc: `Removes a team from tsuru server. You're able to remove teams that you're
+		Desc: `Removes a team from bizfly server. You're able to remove teams that you're
 member of. A team that has access to any app cannot be removed. Before
 removing a team, make sure it does not have access to any app (see "app grant"
 and "app revoke" commands for details).`,
@@ -594,12 +594,12 @@ func (c *ShowAPIToken) Info() *cmd.Info {
 	return &cmd.Info{
 		Name:  "token-show",
 		Usage: "token show [--user/-u useremail]",
-		Desc: `Shows API token for the user. This command is deprecated, [[tsuru
+		Desc: `Shows API token for the user. This command is deprecated, [[bizfly
 token-create]] should be used instead. This token allow authenticated API
-calls to tsuru impersonating the user who created it and will never expire.
+calls to bizfly impersonating the user who created it and will never expire.
 
 The token key will be generated the first time this command is called. See
-[[tsuru token regenerate]] if you need to invalidate an existing token.`,
+[[bizfly token regenerate]] if you need to invalidate an existing token.`,
 		MinArgs: 0,
 	}
 }
@@ -655,8 +655,8 @@ func (c *RegenerateAPIToken) Info() *cmd.Info {
 		Name:  "token-regenerate",
 		Usage: "token regenerate [--user/-u useremail]",
 		Desc: `Generates a new API token associated to the user. This invalidates and
-replaces the token previously shown in [[tsuru token-show]]. This command is
-deprecated, [[tsuru token-create]] and [[tsuru token-update]] should be used
+replaces the token previously shown in [[bizfly token-show]]. This command is
+deprecated, [[bizfly token-create]] and [[bizfly token-update]] should be used
 instead.`,
 		MinArgs: 0,
 	}
@@ -712,7 +712,7 @@ type ListUsers struct {
 
 func (c *ListUsers) Run(ctx *cmd.Context, cli *cmd.Client) error {
 	if c.userEmail != "" && c.role != "" {
-		return errors.New("You cannot filter by user email and role at same time. Enter <tsuru user-list --help> for more information.")
+		return errors.New("You cannot filter by user email and role at same time. Enter <bizfly user-list --help> for more information.")
 	}
 	if c.context != "" && c.role == "" {
 		return errors.New("You should provide a role to filter by context value.")
@@ -751,7 +751,7 @@ func (c *ListUsers) Info() *cmd.Info {
 		Name:    "user-list",
 		MinArgs: 0,
 		Usage:   "user list [--user/-u useremail] [--role/-r role [-c/--context-value value]]",
-		Desc:    "List all users in tsuru. It may also filter users by user email or role name with context value.",
+		Desc:    "List all users in bizfly. It may also filter users by user email or role name with context value.",
 	}
 }
 

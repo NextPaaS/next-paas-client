@@ -36,13 +36,13 @@ func (c *AppBuild) Flags() *gnuflag.FlagSet {
 }
 
 func (c *AppBuild) Info() *cmd.Info {
-	desc := `Builds a tsuru app image respecting .tsuruignore file. Some examples of calls are:
+	desc := `Builds a bizfly app image respecting .tsuruignore file. Some examples of calls are:
 
 ::
 
-		$ tsuru app build -a myapp -t mytag .
-		$ tsuru app build -a myapp -t latest myfile.jar Procfile
-		$ tsuru app build -a myapp -t mytag -f directory/main.go directory/Procfile
+		$ bizfly app build -a myapp -t mytag .
+		$ bizfly app build -a myapp -t latest myfile.jar Procfile
+		$ bizfly app build -a myapp -t mytag -f directory/main.go directory/Procfile
 `
 	return &cmd.Info{
 		Name:    "app-build",

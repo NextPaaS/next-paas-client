@@ -33,7 +33,7 @@ func (c *RouterAdd) Info() *cmd.Info {
 	return &cmd.Info{
 		Name:    "router-add",
 		Usage:   "router add <name> <type> [--config {json object}] [--readiness-gate <name>]...",
-		Desc:    "Adds a new dynamic router to tsuru.",
+		Desc:    "Adds a new dynamic router to bizfly.",
 		MinArgs: 2,
 		MaxArgs: 2,
 	}

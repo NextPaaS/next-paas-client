@@ -86,18 +86,18 @@ func (p *PlatformAdd) Info() *cmd.Info {
 	return &cmd.Info{
 		Name:  "platform-add",
 		Usage: "platform add <platform name> [--dockerfile/-d Dockerfile] [--image/-i image]",
-		Desc: `Adds a new platform to tsuru.
+		Desc: `Adds a new platform to bizfly.
 
 The name of the image can be automatically inferred in case you're using an
-official platform. Check https://github.com/tsuru/platforms for a list of
+official platform. Check https://github.com/bizfly/platforms for a list of
 official platforms and instructions on how to create a custom platform.
 
 Examples:
 
-	[[tsuru platform add java # uses official tsuru/java image from docker hub]]
-	[[tsuru platform add java -i registry.company.com/tsuru/java # uses custom Java image]]
-	[[tsuru platform add java -d /data/projects/java/Dockerfile # uses local Dockerfile]]
-	[[tsuru platform add java -d https://platforms.com/java/Dockerfile # uses remote Dockerfile]]`,
+	[[bizfly platform add java # uses official bizfly/java image from docker hub]]
+	[[bizfly platform add java -i registry.company.com/bizfly/java # uses custom Java image]]
+	[[bizfly platform add java -d /data/projects/java/Dockerfile # uses local Dockerfile]]
+	[[bizfly platform add java -d https://platforms.com/java/Dockerfile # uses remote Dockerfile]]`,
 		MinArgs: 1,
 	}
 }
@@ -153,10 +153,10 @@ func (p *PlatformUpdate) Info() *cmd.Info {
 	return &cmd.Info{
 		Name:  "platform-update",
 		Usage: "platform update <platform name> [--dockerfile/-d Dockerfile] [--disable/--enable] [--image/-i image]",
-		Desc: `Updates a platform in tsuru.
+		Desc: `Updates a platform in bizfly.
 
 The name of the image can be automatically inferred in case you're using an
-official platform. Check https://github.com/tsuru/platforms for a list of
+official platform. Check https://github.com/bizfly/platforms for a list of
 official platforms.
 
 The flags --enable and --disable can be used for enabling or disabling a
@@ -164,10 +164,10 @@ platform.
 
 Examples:
 
-[[tsuru platform update java # uses official tsuru/java image from docker hub]]
-[[tsuru platform update java -i registry.company.com/tsuru/java # uses custom Java image]]
-[[tsuru platform update java -d /data/projects/java/Dockerfile # uses local Dockerfile]]
-[[tsuru platform update java -d https://platforms.com/java/Dockerfile # uses remote Dockerfile]]`,
+[[bizfly platform update java # uses official bizfly/java image from docker hub]]
+[[bizfly platform update java -i registry.company.com/bizfly/java # uses custom Java image]]
+[[bizfly platform update java -d /data/projects/java/Dockerfile # uses local Dockerfile]]
+[[bizfly platform update java -d https://platforms.com/java/Dockerfile # uses remote Dockerfile]]`,
 		MinArgs: 1,
 	}
 }
@@ -233,7 +233,7 @@ func (p *PlatformRemove) Info() *cmd.Info {
 	return &cmd.Info{
 		Name:  "platform-remove",
 		Usage: "platform remove <platform name> [-y]",
-		Desc: `Remove a platform from tsuru. This command will fail if there are application
+		Desc: `Remove a platform from bizfly. This command will fail if there are application
 still using the platform.`,
 		MinArgs: 1,
 	}

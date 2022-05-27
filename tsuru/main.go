@@ -31,7 +31,7 @@ func buildManager(name string) *cmd.Manager {
 		return client.RunPlugin(context)
 	}
 	m := cmd.BuildBaseManager(name, version, header, lookup)
-	m.RegisterTopic("app", `App is a program source code running on Tsuru`)
+	m.RegisterTopic("app", `App is a program source code running on Bizfly`)
 	m.Register(&client.AppRun{})
 	m.Register(&client.AppInfo{})
 	m.Register(&client.AppCreate{})
@@ -57,9 +57,9 @@ func buildManager(name string) *cmd.Manager {
 	m.Register(&client.EnvGet{})
 	m.Register(&client.EnvSet{})
 	m.Register(&client.EnvUnset{})
-	m.RegisterTopic("service", `A service is a well-defined API that tsuru communicates with to provide extra functionality for applications.
-Examples of services are MySQL, Redis, MongoDB, etc. tsuru has built-in services, but it is easy to create and add new services to tsuru.
-Services aren’t managed by tsuru, but by their creators.`)
+	m.RegisterTopic("service", `A service is a well-defined API that bizfly communicates with to provide extra functionality for applications.
+Examples of services are MySQL, Redis, MongoDB, etc. bizfly has built-in services, but it is easy to create and add new services to bizfly.
+Services aren’t managed by bizfly, but by their creators.`)
 	m.Register(client.ServiceList{})
 	m.Register(&client.ServiceInstanceAdd{})
 	m.Register(&client.ServiceInstanceUpdate{})
@@ -169,7 +169,7 @@ Services aren’t managed by tsuru, but by their creators.`)
 	m.Register(&admin.ClusterRemove{})
 	m.Register(&admin.ClusterList{})
 
-	m.RegisterTopic("volume", "Volumes allow applications running on tsuru to use external storage volumes mounted on their filesystem.")
+	m.RegisterTopic("volume", "Volumes allow applications running on bizfly to use external storage volumes mounted on their filesystem.")
 	m.Register(&client.VolumeCreate{})
 	m.Register(&client.VolumeUpdate{})
 	m.Register(&client.VolumeList{})

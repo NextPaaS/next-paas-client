@@ -157,16 +157,16 @@ func (c *AppDeploy) Flags() *gnuflag.FlagSet {
 }
 
 func (c *AppDeploy) Info() *cmd.Info {
-	desc := `Deploys set of files and/or directories to tsuru server. Some examples of
+	desc := `Deploys set of files and/or directories to bizfly server. Some examples of
 calls are:
 
 ::
 
-	$ tsuru app deploy .
-	$ tsuru app deploy myfile.jar Procfile
-	$ tsuru app deploy -f directory/main.go directory/Procfile
-	$ tsuru app deploy mysite
-	$ tsuru app deploy -i http://registry.mysite.com:5000/image-name
+	$ bizfly app deploy .
+	$ bizfly app deploy myfile.jar Procfile
+	$ bizfly app deploy -f directory/main.go directory/Procfile
+	$ bizfly app deploy mysite
+	$ bizfly app deploy -i http://registry.mysite.com:5000/image-name
 `
 	return &cmd.Info{
 		Name:    "app-deploy",

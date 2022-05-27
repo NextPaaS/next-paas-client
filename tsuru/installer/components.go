@@ -132,7 +132,7 @@ func (s *TsuruBoostraper) addTarget() error {
 	}
 	err = t.Run(&s.context, s.client)
 	if err != nil {
-		return fmt.Errorf("failed to add tsuru target: %s", err)
+		return fmt.Errorf("failed to add bizfly target: %s", err)
 	}
 	return nil
 }
@@ -144,7 +144,7 @@ func (s *TsuruBoostraper) login(login, password string) error {
 	s.context.Stdin = strings.NewReader(fmt.Sprintf("%s\n", password))
 	err := logincmd.Run(&s.context, s.client)
 	if err != nil {
-		return fmt.Errorf("failed to login to tsuru: %s", err)
+		return fmt.Errorf("failed to login to bizfly: %s", err)
 	}
 	return nil
 }

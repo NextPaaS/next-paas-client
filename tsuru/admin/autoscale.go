@@ -133,7 +133,7 @@ func (c *AutoScaleInfoCmd) Info() *cmd.Info {
 	return &cmd.Info{
 		Name:  "node-autoscale-info",
 		Usage: "node-autoscale-info",
-		Desc: `Display the current configuration for tsuru autoscale,
+		Desc: `Display the current configuration for bizfly autoscale,
 including the set of rules and the current metadata filter.
 
 The metadata filter is the value that defines which node metadata will be used

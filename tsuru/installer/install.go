@@ -36,11 +36,11 @@ func (c *Install) Info() *cmd.Info {
 	return &cmd.Info{
 		Name:  "install-create",
 		Usage: "install-create [--config/-c config_file] [--compose/-e compose_file]",
-		Desc: `Installs Tsuru and It's components as containers on hosts provisioned
+		Desc: `Installs Bizfly and It's components as containers on hosts provisioned
 with docker machine drivers.
 
 The [[--config]] parameter is the path to a .yml file containing the installation
-configuration. If not provided, Tsuru will be installed into a VirtualBox VM for
+configuration. If not provided, Bizfly will be installed into a VirtualBox VM for
 experimentation.
 `,
 		MinArgs: 0,
@@ -212,7 +212,7 @@ func (c *Uninstall) Info() *cmd.Info {
 	return &cmd.Info{
 		Name:    "install-remove",
 		Usage:   "install-remove [name] [-y/--assume-yes]",
-		Desc:    "Uninstalls Tsuru and It's components.",
+		Desc:    "Uninstalls Bizfly and It's components.",
 		MinArgs: 0,
 	}
 }
@@ -257,7 +257,7 @@ func (c *Uninstall) Run(ctx *cmd.Context, cli *cmd.Client) error {
 			return err
 		}
 		installName = tLabel
-		fmt.Fprintf(ctx.Stdout, "This will uninstall Tsuru installed on your target %s: %s.\n", tLabel, tURL)
+		fmt.Fprintf(ctx.Stdout, "This will uninstall Bizfly installed on your target %s: %s.\n", tLabel, tURL)
 		appMachines, err = machineList.List(cli)
 		if err != nil {
 			return err
@@ -280,7 +280,7 @@ func (c *Uninstall) Run(ctx *cmd.Context, cli *cmd.Client) error {
 		tbl.AddRow(tablecli.Row{m.Host.Name, m.Base.Address, string(data)})
 	}
 	fmt.Fprintf(ctx.Stdout, "The following core machines will be destroyed:\n%s", tbl.String())
-	if !c.Confirm(ctx, "Are you sure you sure you want to uninstall tsuru?") {
+	if !c.Confirm(ctx, "Are you sure you sure you want to uninstall bizfly?") {
 		return nil
 	}
 	if !c.Confirm(ctx, "Are you really sure? I wont ask you again.") {
@@ -305,7 +305,7 @@ func (c *Uninstall) Run(ctx *cmd.Context, cli *cmd.Client) error {
 	api := TsuruAPI{}
 	err = api.Uninstall(installName)
 	if err != nil {
-		fmt.Fprintf(ctx.Stderr, "Failed to uninstall tsuru API: %s\n", err)
+		fmt.Fprintf(ctx.Stderr, "Failed to uninstall bizfly API: %s\n", err)
 		return err
 	}
 	fmt.Fprintf(ctx.Stdout, "Uninstall finished successfully!\n")

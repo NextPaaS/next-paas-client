@@ -92,30 +92,30 @@ func (c *AppCreate) Info() *cmd.Info {
 	return &cmd.Info{
 		Name:  "app-create",
 		Usage: "app create <appname> [platform] [--plan/-p plan name] [--router/-r router name] [--team/-t team owner] [--pool/-o pool name] [--description/-d description] [--tag/-g tag]... [--router-opts key=value]...",
-		Desc: `Creates a new app using the given name and platform. For tsuru,
+		Desc: `Creates a new app using the given name and platform. For bizfly,
 a platform is provisioner dependent. To check the available platforms, use the
-command [[tsuru platform list]] and to add a platform use the command [[tsuru platform add]].
+command [[bizfly platform list]] and to add a platform use the command [[bizfly platform add]].
 
 In order to create an app, you need to be member of at least one team. All
-teams that you are member (see [[tsuru team-list]]) will be able to access the
+teams that you are member (see [[bizfly team-list]]) will be able to access the
 app.
 
 The [[--platform]] parameter is the name of the platform to be used when
-creating the app. This will define how tsuru understands and executes your
-app. The list of available platforms can be found running [[tsuru platform list]].
+creating the app. This will define how bizfly understands and executes your
+app. The list of available platforms can be found running [[bizfly platform list]].
 
 The [[--plan]] parameter defines the plan to be used. The plan specifies how
 computational resources are allocated to your application. Typically this
 means limits for memory and swap usage, and how much cpu share is allocated.
-The list of available plans can be found running [[tsuru plan list]].
+The list of available plans can be found running [[bizfly plan list]].
 
-If this parameter is not informed, tsuru will choose the plan with the
+If this parameter is not informed, bizfly will choose the plan with the
 [[default]] flag set to true.
 
 The [[--router]] parameter defines the router to be used. The list of available
-routers can be found running [[tsuru router-list]].
+routers can be found running [[bizfly router-list]].
 
-If this parameter is not informed, tsuru will choose the router with the
+If this parameter is not informed, bizfly will choose the router with the
 [[default]] flag set to true.
 
 The [[--team]] parameter describes which team is responsible for the created
